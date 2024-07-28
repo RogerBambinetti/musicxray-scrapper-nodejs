@@ -38,7 +38,7 @@ async function init() {
             }
         }
 
-        currentID--;
+        currentID++;
     } while (true);
 }
 
