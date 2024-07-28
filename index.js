@@ -8,7 +8,7 @@ const agent = new https.Agent({
     rejectUnauthorized: false
 });
 
-let currentID = 1247017;
+let currentID = 1247011;
 const tracks = [];
 
 async function init() {
@@ -25,7 +25,8 @@ async function init() {
                     ID: currentID,
                     artist: metadata.item(1).innerHTML,
                     album: metadata.item(2).innerHTML,
-                    title: metadata.item(3).innerHTML
+                    title: metadata.item(3).innerHTML,
+                    //extra: doc.window.document.querySelector('.box.grey-outline').innerHTML
                 }
 
                 tracks.push(trackInfo);
@@ -37,7 +38,7 @@ async function init() {
             }
         }
 
-        currentID++;
+        currentID--;
     } while (true);
 }
 
