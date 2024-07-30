@@ -10,7 +10,7 @@ const agent = new https.Agent({
 
 let tracks = [];
 
-const sitemap = require('./sitemaps/sitemap1.json');
+let sitemap = require('./sitemaps/sitemap2.json');
 
 async function request(url) {
     const response = await axios.get(url, { httpsAgent: agent });
@@ -37,12 +37,19 @@ async function request(url) {
 }
 
 async function init() {
+
+    const existingLog = require('./logs/logs-sitemap2.json');
+    const lastLog = existingLog[existingLog.length - 1];
+
+    tracks = existingLog;
+    sitemap = sitemap.slice(sitemap.indexOf(lastLog.url) + 1);
+
     for (const url of sitemap) {
 
         const result = await request(url);
         tracks.push(result);
 
-        await fs.writeFileSync(`./logs/logs-sitemap1.json`, JSON.stringify(tracks, null, 4), 'utf8');
+        await fs.writeFileSync(`./logs/logs-sitemap2.json`, JSON.stringify(tracks, null, 4), 'utf8');
     }
 }
 
