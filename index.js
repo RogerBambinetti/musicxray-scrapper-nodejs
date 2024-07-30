@@ -44,9 +44,11 @@ async function init() {
     tracks = existingLog;
     sitemap = sitemap.slice(sitemap.indexOf(lastLog.url) + 1);
 
-    for (const url of sitemap) {
+    for (const [index, value] of sitemap.entries()) {
 
-        const result = await request(url);
+        console.log(`Adding ${index + 1} of ${sitemap.length}`);
+
+        const result = await request(value);
         tracks.push(result);
 
         await fs.writeFileSync(`./logs/logs-sitemap2.json`, JSON.stringify(tracks, null, 4), 'utf8');
