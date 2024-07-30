@@ -23,10 +23,10 @@ async function request(url) {
 
             const trackInfo = {
                 url: url,
-                artist: metadata.item(1).innerHTML,
-                album: metadata.item(2).innerHTML,
-                title: metadata.item(3).innerHTML,
-                extra: doc.window.document.querySelector('.box.grey-outline').innerHTML
+                artist: metadata.item(1)?.innerHTML,
+                album: metadata.item(2)?.innerHTML,
+                title: metadata.item(3)?.innerHTML,
+                extra: doc.window.document.querySelector('.box.grey-outline')?.innerHTML
             }
 
             return trackInfo;
