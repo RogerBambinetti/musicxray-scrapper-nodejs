@@ -38,11 +38,13 @@ async function request(url) {
 
 async function init() {
 
-    const existingLog = require('./logs/logs-sitemap3.json');
-    const lastLog = existingLog[existingLog.length - 1];
+    if (fs.existsSync('./logs/logs-sitemap3.json')) {
+        const existingLog = require('./logs/logs-sitemap3.json');
+        const lastLog = existingLog[existingLog.length - 1];
 
-    tracks = existingLog;
-    sitemap = sitemap.slice(sitemap.indexOf(lastLog.url) + 1);
+        tracks = existingLog;
+        sitemap = sitemap.slice(sitemap.indexOf(lastLog.url) + 1);
+    }
 
     for (const [index, value] of sitemap.entries()) {
 
