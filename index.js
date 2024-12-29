@@ -3,7 +3,6 @@ const jsdom = require("jsdom");
 const https = require('https');
 const fs = require('fs');
 
-// At request level
 const agent = new https.Agent({
     rejectUnauthorized: false
 });
