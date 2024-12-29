@@ -4,7 +4,7 @@
 [![Português](https://img.shields.io/badge/lang-portuguese-green.svg)](README.pt-br.md)
 
 ## Description
-Web scrapper to collect data from songs uploaded at https://www.musicxray.com. The goal is being able to find songs which aren't indexed by search engines.
+This web scraper collects data from songs uploaded to [MusicXray](https://www.musicxray.com). The goal is to find songs that are not indexed by search engines.
 
 ## Requirements
 
